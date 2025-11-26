@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-
-/* Hero page animation text */
+/* Reset and global */
 * {
     margin: 0;
     padding: 0;
@@ -9,14 +8,55 @@
     font-family: 'Manrope', sans-serif;
 }
 
-body{
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #000000;
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background: black;
 }
 
+/* HERO SECTION */
+#hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Hero glitch canvas only inside hero */
+#glitchCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Hero container */
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Hero text animation */
 .wrapper {
     display: flex;
     z-index: 1;
@@ -31,10 +71,10 @@ body{
 .wrapper .dynamic-txts {
     margin-left: 10px;
     height: 100px;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
-.dynamic-txts li{
+.dynamic-txts li {
     list-style: none;
     color: rgb(219, 54, 54);
     font-size: 80px;
@@ -43,7 +83,7 @@ body{
     animation: slide 6s steps(3) infinite;
 }
 
-.dynamic-txts li::after{
+.dynamic-txts li::after {
     content: "";
     position: absolute;
     left: 0;
@@ -55,13 +95,8 @@ body{
 }
 
 @keyframes typing {
-    40%,
-    60%{
-        left: calc(100% + 30px);
-    }
-    100% {
-        left: 0;
-    }
+    40%, 60% { left: calc(100% + 30px); }
+    100% { left: 0; }
 }
 
 @keyframes slide {
@@ -69,108 +104,148 @@ body{
     100% { top: -325px; }
 }
 
-/* Hero page scroller */
-
+/* Scroller */
 .scroller {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1;
-  animation: bounce 2s infinite;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    cursor: pointer;
+    animation: bounce 2s infinite;
 }
 
 .scroll-txt {
-  color: #fff;
-  font-family: sans-serif;
-  font-size: 16px;
-  margin-bottom: 30px;
-  text-align: center;
-  /* bounce animation removed */
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 16px;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-/* Wide V shape */
 #V-shape {
-  width: 0;
-  height: 0;
-  position: relative;
-  margin: 0 auto;
-  /* bounce animation removed */
-  rotate: 180deg;
+    width: 0;
+    height: 0;
+    position: relative;
+    margin: 0 auto;
+    rotate: 180deg;
 }
 
-/* Two arms form a V using pseudo-elements. Each arm is rotated 65deg from vertical
-   to create a 130deg angle between them (65 + 65 = 130). */
 #V-shape::before,
 #V-shape::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 4px;           /* thickness of the arm */
-  height: 80px;        /* length of the arm (adjust as needed) */
-  background: #fff;
-  transform-origin: top center;
-  border-radius: 2px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 80px;
+    background: #fff;
+    transform-origin: top center;
+    border-radius: 2px;
 }
 
 #V-shape::before { transform: translateX(-50%) rotate(65deg); }
 #V-shape::after  { transform: translateX(-50%) rotate(-65deg); }
 
-/* Optional bounce animation (vertical only) */
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-/* HERO BACKGROUND EFFECT */
-.container {
-  position: relative;
-  z-index: 1;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;   /* vertically center content */
-  align-items: center;       /* horizontally center content */
-  text-align: center;        /* center text inside */
-
-  width: 100%;
-  height: calc(100vh + 40px);
-border-radius: 20px;
-  padding: 40px 20px;
-
-  /* blur effect */
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
-  border-radius: 0;
-  
-  /* Fade in blur */
-  opacity: 0;
-  animation: fadeIn 1s ease-in forwards;
+/* SECOND SECTION */
+#about {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+.second-container h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
 }
 
-/* glitch effect */
-body, html {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: black;
+.second-container p {
+    font-size: 20px;
+    max-width: 800px;
 }
 
-#glitchCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  pointer-events: none; /* optional: ensures clicks pass through */
+
+
+/* Second section TABS */
+
+
+.tabswrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.tabs {
+    background: white;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+    padding: 10px;
+    border-radius: 5rem;
+    padding: 10px;
+    display: flex;
+    position: relative;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    display: block;
+    height: 55px;
+    width: 200px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.glider {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 55px;
+    width: 33%;
+    background: black;
+    border-radius: 5rem;
+    transition: ease 0.3s;
+    z-index: 1;
+}
+
+#tab1:checked ~ label[for="tab1"] {
+    color: rgb(211, 211, 211);
+}
+#tab2:checked ~ label[for="tab2"] {
+    color: rgb(211, 211, 211);
+}
+#tab3:checked ~ label[for="tab3"] {
+    color: rgb(211, 211, 211);
+}
+
+#tab1:checked ~ .glider {
+    transform: translateX(0px);
+}
+#tab2:checked ~ .glider {
+    transform: translateX(200px);
+}
+#tab3:checked ~ .glider {
+    transform: translateX(400px);
+}

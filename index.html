@@ -8,22 +8,47 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <canvas id="glitchCanvas"></canvas>
 
-    <div class="container">
-    <div class="wrapper">
-        <div class="static-txt">Welcome to my</div>
-        <ul class="dynamic-txts">
-            <li><span>Website...</span></li>
-            <li><span>Portfolio...</span></li>
-            <li><span>Archive...</span></li>
-        </ul>
-    </div>
-    </div>
-    
-    <div class="scroller">
-    <div class="scroll-txt">Click to scroll</div>
-    <div id="V-shape"></div>
-</div>
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <canvas id="glitchCanvas"></canvas>
+
+        <div class="container">
+            <div class="wrapper">
+                <div class="static-txt">Welcome to my</div>
+                <ul class="dynamic-txts">
+                    <li><span>Website...</span></li>
+                    <li><span>Portfolio...</span></li>
+                    <li><span>Archive...</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="scroller">
+            <div class="scroll-txt">Click to scroll</div>
+            <div id="V-shape"></div>
+        </div>
+    </section>
+
+    <!-- SECOND SECTION -->
+    <section id="about">
+        <div class="second-container">
+            <div class="SecondHeader">
+                <h1>About me</h1>
+            </div>
+            <div class="TabsWrap">
+            <div class="tabs">
+                <input type="radio" name="tabs" checked id="tab1">
+                <label for="tab1">About Me</label>
+                <input type="radio" name="tabs" id="tab2">
+                <label for="tab2">Projects</label>
+                <input type="radio" name="tabs" id="tab3">
+                <label for="tab3">Contact</label>
+                <div class="glider"></div>
+            </div>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
