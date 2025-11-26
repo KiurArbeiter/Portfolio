@@ -216,6 +216,7 @@ label {
     align-items: center;
     cursor: pointer;
     z-index: 2;
+    color: #000;
 }
 
 .glider {
@@ -223,7 +224,7 @@ label {
     top: 10px;
     left: 10px;
     height: 55px;
-    width: 33%;
+    width: 200px;
     background: black;
     border-radius: 5rem;
     transition: ease 0.3s;
