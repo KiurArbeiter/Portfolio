@@ -23,6 +23,11 @@ body, html {
     overflow: hidden;
 }
 
+/* Make every top-level section at least full viewport height */
+section {
+    min-height: 100vh;
+}
+
 /* Hero glitch canvas only inside hero */
 #glitchCanvas {
     position: absolute;
@@ -271,6 +276,84 @@ body, html {
     .SecondHeader h1 {
         font-size: 36px;
     }
+}
+
+
+/* THIRD SECTION - Projects */
+#projects {
+    width: 100%;
+    padding: 80px 20px;
+    background: #050505;
+    color: #fff;
+}
+
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.projects-container h2 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.projects-container .lead {
+    color: rgba(255,255,255,0.7);
+}
+
+.projects-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.project-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.project-card h3 {
+    margin: 0 0 8px 0;
+}
+
+.project-card p {
+    margin: 0 0 12px 0;
+    color: rgba(255,255,255,0.8);
+}
+
+.project-card .btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background: rgba(219,54,54,0.12);
+    border: 1px solid rgba(219,54,54,0.18);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+@media (max-width: 900px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .projects-container h2 { font-size: 32px; }
 }
 
 
