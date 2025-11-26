@@ -165,17 +165,112 @@ body, html {
     background: #000000;
     color: #fff;
     padding: 60px 20px;
-    text-align: center;
 }
 
-.second-container h1 {
+.second-container {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    max-width: 1400px;
+    width: 100%;
+}
+
+/* Left side: Picture */
+.about-picture {
+    flex: 1.5;
+    min-width: 400px;
+}
+
+.about-picture img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Right side: Content */
+.about-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: left;
+}
+
+.SecondHeader h1 {
     font-size: 50px;
-    margin-bottom: 20px;
+    margin: 0;
+    text-align: left;
 }
 
-.second-container p {
-    font-size: 20px;
-    max-width: 800px;
+/* Tab content styling */
+.tab-content-wrapper {
+    min-height: 250px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* TAB3 LINK STYLES */
+/* Scoped to `#content3` so other links are unaffected */
+#content3 a {
+    color: #fff;
+    background: rgba(219, 54, 54, 0.12);
+    border: 1px solid rgba(219, 54, 54, 0.22);
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+    transition: background 160ms ease, transform 120ms ease, color 160ms ease;
+}
+
+#content3 a:hover,
+#content3 a:focus {
+    background: rgb(219, 54, 54);
+    color: #000;
+    transform: translateY(-2px);
+}
+
+#content3 a:visited {
+    color: #eee;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .second-container {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .about-picture {
+        max-width: 100%;
+    }
+    
+    .about-content {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .SecondHeader h1 {
+        font-size: 36px;
+    }
 }
 
 
@@ -250,3 +345,5 @@ label {
 #tab3:checked ~ .glider {
     transform: translateX(400px);
 }
+
+/* End of second section TABS */

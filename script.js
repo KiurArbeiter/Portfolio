@@ -86,3 +86,22 @@ scroller.addEventListener("click", () => {
     const aboutSection = document.getElementById("about");
     aboutSection.scrollIntoView({ behavior: "smooth" });
 });
+
+// TAB SWITCHING
+document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll('input[name="tabs"]');
+    const contents = document.querySelectorAll(".tab-content");
+    
+    // Show first tab by default
+    if (contents[0]) contents[0].classList.add("active");
+    
+    tabs.forEach((tab, index) => {
+        tab.addEventListener("change", () => {
+            // Remove active class from all contents
+            contents.forEach(content => content.classList.remove("active"));
+            
+            // Add active class to corresponding content
+            if (contents[index]) contents[index].classList.add("active");
+        });
+    });
+});
